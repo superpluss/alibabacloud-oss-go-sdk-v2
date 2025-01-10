@@ -2494,7 +2494,7 @@ func (c *Client) AsyncProcessObject(ctx context.Context, request *AsyncProcessOb
 		Bucket: request.Bucket,
 		Key:    request.Key,
 		Parameters: map[string]string{
-			"x-oss-async-process": "",
+			"x-oss-async-process": *request.AsyncProcess,
 		},
 	}
 	if err = c.marshalInput(request, input, addProcess, updateContentMd5); err != nil {
